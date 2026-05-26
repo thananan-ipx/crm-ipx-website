@@ -1,0 +1,96 @@
+/* ============================================
+   CRM — Theme tokens (matches existing shadcn project)
+   Project primary: oklch(0.60 0.13 163) (green)
+   Module accents per spec:
+     - Marketing: blue
+     - Sales: orange
+     - Service: green (= primary)
+   ============================================ */
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.60 0.13 163);
+  --primary-foreground: oklch(0.98 0.02 166);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.58 0.22 27);
+  --warning: oklch(0.78 0.16 75);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.60 0.13 163);
+  --sidebar-primary-foreground: oklch(0.98 0.02 166);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+
+  /* Module accents */
+  --marketing: oklch(0.58 0.18 250);
+  --marketing-soft: oklch(0.95 0.04 250);
+  --marketing-fg: oklch(0.35 0.18 250);
+
+  --sales: oklch(0.68 0.18 50);
+  --sales-soft: oklch(0.96 0.06 70);
+  --sales-fg: oklch(0.45 0.17 50);
+
+  --service: oklch(0.60 0.13 163);
+  --service-soft: oklch(0.95 0.05 163);
+  --service-fg: oklch(0.40 0.13 163);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+/* density */
+body[data-density="compact"] { font-size: 13px; }
+body[data-density="compact"] .row-pad { padding-block: 6px !important; }
+body[data-density="compact"] .card-pad { padding: 14px !important; }
+
+/* utilities */
+.scroll-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: oklch(0.88 0 0); border-radius: 4px; }
+.scroll-thin::-webkit-scrollbar-thumb:hover { background: oklch(0.78 0 0); }
+
+/* drag state */
+.kanban-card.dragging { opacity: 0.45; transform: rotate(-1.5deg); }
+.kanban-col.drop-target { background: oklch(0.97 0.02 250 / 0.4); }
+
+/* animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to {opacity:1; transform:none;} }
+.fade-in { animation: fadeIn 0.2s ease-out; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px);} to {opacity:1; transform:none;} }
+.slide-up { animation: slideUp 0.25s ease-out; }
+
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.pulse-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+/* small typography helpers */
+.font-thai { font-family: "Noto Sans Thai", "Inter", sans-serif; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Focus ring */
+*:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 4px; }

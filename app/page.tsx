@@ -99,9 +99,52 @@ const benefits = [
   "Roadmap: เตรียมเชื่อมต่อ PEAK และ FlowAccount เพื่อต่อยอดสู่งานบัญชี",
 ]
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "IProgressX CRM แตกต่างจาก CRM ทั่วไปอย่างไร?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "IProgressX CRM ออกแบบมาเฉพาะสำหรับสำนักงานบัญชีไทย เข้าใจวงจรงานตั้งแต่รับลูกค้าใหม่ เสนอราคาบริการบัญชี ติดตาม Deadline ภาษี ไปจนถึงปิดงบประจำปี ไม่ใช่ CRM ทั่วไปที่ต้องปรับแต่งเอง",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "ทดลองใช้ได้ฟรีหรือไม่?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ทดลองใช้ Demo ได้ฟรีทันที ไม่ต้องสมัครและไม่ต้องผูกบัตรเครดิต ลองได้ครบทุกฟีเจอร์ในเบราว์เซอร์",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "ระบบรองรับ PDPA หรือไม่?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "รองรับ PDPA เต็มรูปแบบ ข้อมูลโฮสต์ในประเทศไทย เข้ารหัสทุกชั้น พร้อมระบบสิทธิ์ละเอียดระดับฟิลด์",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "เชื่อมต่อกับ PEAK หรือ FlowAccount ได้หรือไม่?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "อยู่ใน Roadmap เตรียมเชื่อมต่อ PEAK และ FlowAccount เพื่อต่อยอดจากใบเสนอราคาที่ปิดแล้วไปออกใบแจ้งหนี้-ใบกำกับภาษีโดยไม่ต้องคีย์ซ้ำ",
+      },
+    },
+  ],
+}
+
 export default function Page() {
   return (
-    <div className="relative min-h-svh overflow-hidden bg-background [background-image:linear-gradient(to_bottom,rgba(99,102,241,0.06),transparent_520px)] text-foreground">
+    <main className="relative min-h-svh overflow-hidden bg-background [background-image:linear-gradient(to_bottom,rgba(99,102,241,0.06),transparent_520px)] text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Background gradient blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-40 -left-40 h-[480px] w-[480px] rounded-full bg-gradient-to-br from-indigo-500/30 via-sky-500/20 to-transparent blur-3xl" />
@@ -131,6 +174,10 @@ export default function Page() {
               บริหารลูกค้า เสนอราคาบริการบัญชี ติดตาม Deadline ภาษี และปิดงบ —
               <br className="hidden sm:block" />
               ครบในระบบเดียวที่ออกแบบมาเข้าใจวงจรงานของสำนักงานบัญชีไทย
+            </p>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground/80 sm:text-base">
+              IProgressX CRM (IPX CRM) — the all-in-one accounting CRM built for
+              Thai accounting firms.
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -455,6 +502,11 @@ export default function Page() {
                 ตั้งแต่การรับลูกค้าใหม่ ใบเสนอราคาบริการ การติดตามด้วย Line OA
                 ไปจนถึงการยื่นภาษีและปิดงบประจำปี
               </p>
+              <p className="mt-2 text-xs text-muted-foreground/80 sm:text-sm">
+                A purpose-built CRM for accounting firms — not a generic CRM
+                forced to fit. Designed for Thai accounting workflows, with full
+                PDPA compliance.
+              </p>
 
               <ul className="mt-7 space-y-3">
                 {benefits.map((b) => (
@@ -603,6 +655,6 @@ export default function Page() {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   )
 }

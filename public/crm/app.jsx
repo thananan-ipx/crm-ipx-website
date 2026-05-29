@@ -234,7 +234,7 @@ const ExistingPagePlaceholder = ({ route, title }) => (
         <div className="mx-auto h-12 w-12 rounded-full bg-[var(--muted)] flex items-center justify-center mb-3"><Icon name="Construction" size={20} /></div>
         <p className="text-sm font-medium">{title}</p>
         <p className="text-xs text-[var(--muted-foreground)] mt-1 max-w-md mx-auto">
-          ในระบบจริง หน้านี้คือ <code className="px-1 py-0.5 bg-[var(--muted)] rounded text-[10px]">{route}</code> ของ Case Management เดิม.
+          ในระบบจริง หน้านี้คือ <code className="px-1 py-0.5 bg-[var(--muted)] rounded text-[10px]">{route}</code> ของ CRM เดิม.
           ดู CRM ที่เพิ่มเข้ามาในเมนู "CRM" ทางซ้าย
         </p>
       </CardContent>

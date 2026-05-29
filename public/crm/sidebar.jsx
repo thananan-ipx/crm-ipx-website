@@ -1,5 +1,5 @@
 /* ============================================
-   Sidebar — match existing Case Management nav
+   Sidebar — match existing CRM nav
    + new CRM section grouped by module
    ============================================ */
 
@@ -64,8 +64,8 @@ const Sidebar = ({ route, onNavigate, onToggleMobile, mobileOpen }) => {
               <Icon name="Command" size={16} />
             </div>
             <div className="text-left text-sm leading-tight">
-              <p className="font-medium truncate">Case Management</p>
-              <p className="text-xs text-[var(--muted-foreground)] truncate">Netichai And Accounting</p>
+              <p className="font-medium truncate">CRM</p>
+              <p className="text-xs text-[var(--muted-foreground)] truncate">I Progress X</p>
             </div>
           </a>
         </div>

@@ -362,15 +362,15 @@ const ProposalBuilder = ({ leads, defaultLeadId }) => {
           <Badge tone="default" soft className="!text-[10px]">ครั้งเดียว / Advisory</Badge>
         </div>
         <div className="space-y-1.5">
-          {ADDONS.map(a => {
-            const selected = !!addons[a.id];
+          {PACKAGE_ADDONS.map(a => {
+            const selected = !!advisoryAddons[a.id];
             const isCustom = a.custom;
             return (
               <div key={a.id} className={cn("rounded-md border transition-all",
                 selected ? "border-[var(--service)] bg-[var(--service-soft)]/30" : "border-[var(--border)]"
               )}>
                 <label className="flex items-start gap-2.5 p-3 cursor-pointer">
-                  <input type="checkbox" checked={selected} onChange={() => toggleAddon(a)}
+                  <input type="checkbox" checked={selected} onChange={() => toggleAdvisory(a)}
                     className="mt-1 rounded accent-[var(--service)]" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
@@ -394,17 +394,17 @@ const ProposalBuilder = ({ leads, defaultLeadId }) => {
                       <span className="text-[11px] text-[var(--muted-foreground)]">฿</span>
                       <input
                         type="number"
-                        value={addons[a.id].price}
-                        onChange={e => setAddonPrice(a.id, parseInt(e.target.value) || 0)}
+                        value={advisoryAddons[a.id].price}
+                        onChange={e => setAdvisoryPrice(a.id, parseInt(e.target.value) || 0)}
                         className="h-7 w-32 rounded border border-[var(--input)] px-2 text-sm tabular"
                         placeholder={isCustom ? "กรอกราคาเอง" : "0"}
                         min="0"
                       />
                       {!isCustom && (
                         <div className="flex items-center gap-0.5">
-                          <button onClick={() => setAddonPrice(a.id, a.priceMin)}
+                          <button onClick={() => setAdvisoryPrice(a.id, a.priceMin)}
                             className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--muted)] hover:bg-[var(--accent)]">ต่ำสุด</button>
-                          <button onClick={() => setAddonPrice(a.id, a.priceMax)}
+                          <button onClick={() => setAdvisoryPrice(a.id, a.priceMax)}
                             className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--muted)] hover:bg-[var(--accent)]">สูงสุด</button>
                         </div>
                       )}
@@ -450,11 +450,11 @@ const ProposalBuilder = ({ leads, defaultLeadId }) => {
             </>
           )}
 
-          {Object.keys(addons).length > 0 && (
+          {Object.keys(advisoryAddons).length > 0 && (
             <>
               <Divider />
-              {Object.entries(addons).map(([aid, info]) => {
-                const a = ADDONS.find(x => x.id === aid);
+              {Object.entries(advisoryAddons).map(([aid, info]) => {
+                const a = PACKAGE_ADDONS.find(x => x.id === aid);
                 return (
                   <div key={aid} className="flex items-center justify-between text-sm">
                     <span>+ {a.label}</span>
@@ -476,7 +476,7 @@ const ProposalBuilder = ({ leads, defaultLeadId }) => {
                 เก็บค่าบริการ {billingMode === "annual" ? "ครั้งเดียวต้นปี" : "ทุกเดือน " + monthlyTotal.toLocaleString() + " บาท"}
               </p>
             </div>
-            <p className="text-2xl font-bold tabular text-[var(--sales-fg)]">฿{yearTotal.toLocaleString()}</p>
+            <p className="text-2xl font-bold tabular text-[var(--sales-fg)]">฿{pkgYearTotal.toLocaleString()}</p>
           </div>
         </div>
       </Card>
